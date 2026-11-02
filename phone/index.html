@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>결혼합니다 — 휴대폰 청첩장</title>
+<!-- ▼ 카카오톡 미리보기 (선택) : 올린 뒤 주소가 정해지면 og:image 를 실제 주소로 바꾸세요 -->
+<meta property="og:title" content="주영 ♥ 현지 결혼합니다">
+<meta property="og:description" content="신랑의 휴대폰을 몰래 열어보세요">
+<meta property="og:image" content="https://hyunji0124.github.io/wedding/photos/share.jpg">
+<!-- ▲ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Gowun+Batang:wght@400;700&display=swap">
+<style>
+html,body{margin:0;height:100%;background:#000}
+body{position:fixed;inset:0;font-family:'Noto Sans KR',system-ui,-apple-system,sans-serif;-webkit-tap-highlight-color:transparent;overflow:hidden}
+button{font:inherit;cursor:pointer;-webkit-user-select:none;user-select:none}
+#app{position:relative;width:390px;height:844px;overflow:hidden;background:#1C1C1E;color:#1C1C1E;transform-origin:top left}
+.fill{position:absolute;inset:0}
+.abs{position:absolute}
+.wp{background-size:cover;background-position:52% 50%;background-color:#C9A08C}
+.wp-blur{background-size:cover;background-position:52% 50%;background-color:#C9A08C;filter:blur(18px);transform:scale(1.15)}
+.ph{background-size:cover;background-position:50% 40%;background-color:#C9A08C}
+.note{padding:12px 14px;border-radius:20px;background:rgba(255,255,255,0.78);display:flex;gap:12px;align-items:flex-start}
+.nicon{width:38px;height:38px;flex:0 0 38px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff}
+.ntext{flex:1;display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:1.4}
+.ntop{display:flex;justify-content:space-between}
+.ntop span{font-size:12px;color:#48484A}
+.key{width:78px;height:78px;border-radius:999px;border:0;color:#fff;font-size:30px;font-weight:300;background:rgba(255,255,255,0.2)}
+.key:active{background:rgba(255,255,255,0.45)}
+.key.txt{background:transparent;font-size:15px;font-weight:400}
+.app{border:0;background:transparent;padding:0;display:flex;flex-direction:column;align-items:center;gap:7px;color:#fff}
+.icon{position:relative;width:62px;height:62px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 14px -8px rgba(0,0,0,0.5)}
+.badge{position:absolute;top:-5px;right:-5px;min-width:22px;height:22px;padding:0 6px;box-sizing:border-box;border-radius:11px;background:#E5484D;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.lbl{font-size:12px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+.hdr{height:96px;flex:0 0 96px;padding:44px 12px 0;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E5E5EA;background:#fff}
+.back{height:44px;min-width:72px;padding:0 8px;border:0;background:transparent;color:#2C6FDB;font-size:16px;display:flex;align-items:center;gap:2px}
+.card{border-radius:14px;background:#fff;box-shadow:0 0 0 1px #E5E5EA}
+.bub-l{align-self:flex-start;max-width:78%;padding:10px 14px;border-radius:18px 18px 18px 6px;background:#E9E9EB}
+.bub-r{align-self:flex-end;max-width:78%;padding:10px 14px;border-radius:18px 18px 6px 18px;background:#2C6FDB;color:#fff}
+.btn-o{height:44px;border:0;border-radius:10px;background:#fff;box-shadow:0 0 0 1px #E5E5EA;color:#1C1C1E;font-size:13px}
+.btn-o:active{background:#EFEFF4}
+.btn-k{height:48px;border:0;border-radius:12px;background:#1C1C1E;color:#fff;font-size:15px}
+.circ{width:44px;height:44px;border:0;border-radius:999px;background:#E8F0FC;color:#2C6FDB;display:flex;align-items:center;justify-content:center}
+.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.seg{height:52px;border:0;border-radius:12px;font-size:15px}
+.seg.on{background:#1C1C1E;color:#fff;font-weight:500}
+.seg.off{background:#fff;box-shadow:0 0 0 1px #D1D1D6;color:#1C1C1E}
+@keyframes note{0%{opacity:0;transform:translateY(-14px) scale(.97)}100%{opacity:1;transform:none}}
+.n1{animation:note .45s ease-out .5s both}.n2{animation:note .45s ease-out 1.3s both}.n3{animation:note .45s ease-out 2.1s both}
+@keyframes up{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:none}}
+.up{animation:up .35s ease-out both}
+@keyframes open{0%{opacity:0;transform:scale(.9)}100%{opacity:1;transform:none}}
+.open{animation:open .28s ease-out both}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-12px)}40%{transform:translateX(10px)}60%{transform:translateX(-8px)}80%{transform:translateX(6px)}}
+.shake{animation:shake .4s ease-in-out}
+@keyframes hint{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(-6px);opacity:.6}}
+.hint{animation:hint 1.6s ease-in-out infinite}
+@keyframes msg{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
+.m{animation:msg .35s ease-out both}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="../config.js"></script>
+<script src="../common.js"></script>
+<script>
+var C = WD.cfg, G = C.groom || {}, B = C.bride || {}, V = C.venue || {}, P = C.parents || {};
+var owner = C.phoneOwner === 'bride' ? B : G, other = C.phoneOwner === 'bride' ? G : B;
+var ownerSide = C.phoneOwner === 'bride' ? 'bride' : 'groom';
+var base = '../';
+var photos = C.photos || {};
+var mainUrl = base + (photos.main || 'photos/main.jpg');
+var album = (photos.album || []).map(function (p) { return base + p; });
+while (album.length < 4) album.push(mainUrl);
+document.title = (G.short || G.name) + ' ♥ ' + (B.short || B.name) + ' 결혼합니다';
+
+var S = { screen: 'lock', code: '', wrong: false, app: null, viewer: 0, rsvp: null, badge: true, passFresh: true };
+var I = {
+  msg: function (w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>'; },
+  photo: function (w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>'; },
+  map: function (w, c) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="' + (c || 'currentColor') + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>'; },
+  contact: function (w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5 7-5s5.8 1.4 7 5"/></svg>'; },
+  gift: function (w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-1.5-3-5-3.5-5-1.2C7 9 12 9 12 9zM12 9c1.5-3 5-3.5 5-1.2C17 9 12 9 12 9z"/></svg>'; },
+  memo: function (w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>'; },
+  rsvp: function (w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'; },
+  share: function (w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 14v5h14v-5"/></svg>'; },
+  lock: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+  upArrow: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>',
+  back: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>',
+  call: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>'
+};
+function calIcon(small) { return '<span style="display:flex;flex-direction:column;align-items:center;line-height:1"><span style="font-size:' + (small ? 8 : 10) + 'px;color:#E5484D;font-weight:700">' + C.date.month + '월</span><span style="font-size:' + (small ? 16 : 26) + 'px;color:#1C1C1E;font-weight:' + (small ? 500 : 300) + '">' + C.date.day + '</span></span>'; }
+function clock() { var n = new Date(); return WD.pad(n.getHours()) + ':' + WD.pad(n.getMinutes()); }
+var e = WD.esc;
+
+function lock() {
+  return '<div class="wp fill" style="background-image:url(' + mainUrl + ')"></div><div class="fill" style="background:rgba(20,14,18,0.28)"></div>' +
+  '<div class="abs" style="left:0;right:0;top:64px;display:flex;flex-direction:column;align-items:center;gap:2px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,0.35)"><span style="font-size:17px;font-weight:500">' + C.date.month + '월 ' + C.date.day + '일 ' + WD.weekday + '</span><span style="font-size:84px;font-weight:300;line-height:1.05;letter-spacing:-.02em">' + clock() + '</span></div>' +
+  '<div class="abs" style="left:14px;right:14px;top:250px;display:flex;flex-direction:column;gap:8px">' +
+  '<div class="note n1"><span class="nicon" style="background:#fff;box-shadow:inset 0 0 0 1px #E5E5EA">' + calIcon(true) + '</span><span class="ntext"><span class="ntop"><strong>캘린더</strong><span>지금</span></span><span>결혼식 · ' + WD.dday() + '</span></span></div>' +
+  '<div class="note n2"><span class="nicon" style="background:#3DBE76">' + I.msg(20) + '</span><span class="ntext"><span class="ntop"><strong>' + e(other.short || other.name) + '</strong><span>2분 전</span></span><span>' + e((C.chat && C.chat[2] && C.chat[2].text) || '이제 다들 알려줘도 되지?') + '</span></span></div>' +
+  '<div class="note n3"><span class="nicon" style="background:#F2A541">' + I.photo(20) + '</span><span class="ntext"><span class="ntop"><strong>사진</strong><span>어제</span></span><span>새로운 추억 ' + album.length + '장이 앨범에 추가되었어요</span></span></div></div>' +
+  '<button type="button" data-act="topass" class="abs" style="left:0;width:390px;bottom:0;height:150px;border:0;background:transparent;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;padding-bottom:28px"><span class="hint" style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:14px;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,0.85),0 0 14px rgba(0,0,0,0.6)">' + I.upArrow + '눌러서 잠금 해제</span><span style="width:134px;height:5px;border-radius:3px;background:#fff;display:block"></span></button>';
+}
+function pass() {
+  var dots = '';
+  for (var i = 0; i < 4; i++) dots += '<span style="width:14px;height:14px;border-radius:999px;display:block;box-sizing:border-box;border:1.5px solid #fff;background:' + (i < S.code.length ? '#fff' : 'transparent') + '"></span>';
+  var keys = '';
+  ['1','2','3','4','5','6','7','8','9','','0','del'].forEach(function (k) {
+    if (k === '') keys += '<span></span>';
+    else if (k === 'del') keys += '<button type="button" class="key txt" data-key="del">지우기</button>';
+    else keys += '<button type="button" class="key" data-key="' + k + '">' + k + '</button>';
+  });
+  return '<div class="wp-blur fill" style="background-image:url(' + mainUrl + ')"></div><div class="fill" style="background:rgba(20,14,18,0.45)"></div>' +
+  '<div class="fill' + (S.passFresh ? ' up' : '') + '" style="display:flex;flex-direction:column;align-items:center;padding-top:110px;gap:22px;color:#fff">' + I.lock +
+  '<div style="display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center"><p style="margin:0;font-size:19px;font-weight:500">암호 입력</p><p style="margin:0;font-size:13px;opacity:.85">힌트 · 우리가 결혼하는 날 (월일 4자리)</p></div>' +
+  '<div class="' + (S.wrong ? 'shake' : '') + '" style="display:flex;gap:18px;height:16px;align-items:center">' + dots + '</div>' +
+  '<p style="margin:-6px 0 0;height:18px;font-size:13px;color:#FFD3CF">' + (S.wrong ? '잠금화면에 날짜가 있었어요!' : '') + '</p>' +
+  '<div style="display:grid;grid-template-columns:repeat(3,78px);gap:16px 26px;margin-top:6px">' + keys + '</div>' +
+  '<button type="button" data-act="home" style="margin-top:8px;height:44px;padding:0 16px;border:0;background:transparent;color:#fff;font-size:14px;opacity:.85">모르겠어요</button></div>';
+}
+var APPS = [['msg','메시지','#3DBE76'],['photo','사진','#F2A541'],['cal','캘린더','#FFFFFF'],['map','지도','#4C86E8'],['contact','연락처','#8E8E93'],['gift','마음 전하기','#E07A5F'],['memo','메모','#F5C842'],['rsvp','참석 여부','#E5484D']];
+function home() {
+  var g = '';
+  APPS.forEach(function (a) {
+    if (a[0] === 'gift' && !G.account && !B.account) return;
+    g += '<button type="button" class="app" data-app="' + a[0] + '"><span class="icon" style="background:' + a[2] + '">' + (a[0] === 'cal' ? calIcon() : I[a[0]](30)) + (a[0] === 'msg' && S.badge ? '<span class="badge">1</span>' : '') + '</span><span class="lbl">' + a[1] + '</span></button>';
+  });
+  return '<div class="wp-blur fill" style="background-image:url(' + mainUrl + ')"></div><div class="fill" style="background:rgba(20,14,18,0.32)"></div>' +
+  '<div class="fill open" style="padding:58px 22px 0;display:flex;flex-direction:column;gap:26px">' +
+  '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="height:160px;border-radius:24px;background:rgba(255,255,255,0.82);padding:16px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:12px;color:#48484A">우리 결혼식까지</span><span style="font-size:40px;font-weight:700;letter-spacing:-.02em">' + WD.dday() + '</span><span style="font-size:12px;color:#48484A">' + WD.dateShort.replace(/\./g, '. ') + '</span></div>' +
+  '<button type="button" data-app="photo" class="ph" style="height:160px;border-radius:24px;border:0;padding:0;position:relative;overflow:hidden;background-image:url(' + album[1] + ')"><span style="position:absolute;left:12px;bottom:10px;font-size:12px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,0.6)">추억</span></button></div>' +
+  '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px 10px">' + g + '</div>' +
+  '<p style="margin:0;text-align:center;font-size:13px;color:#fff;opacity:.85;text-shadow:0 1px 6px rgba(0,0,0,0.5)">앱을 눌러서 둘러보세요</p>' +
+  '<button type="button" data-act="share" style="margin:auto auto 28px;height:44px;padding:0 18px;border:1px solid rgba(255,255,255,0.6);border-radius:999px;background:rgba(0,0,0,0.25);color:#fff;font-size:13px;display:flex;align-items:center;gap:8px">' + I.share(16) + '이 청첩장 공유하기</button></div>';
+}
+function shell(title, body, bg) {
+  return '<div class="fill open" style="background:' + (bg || '#F2F2F7') + ';display:flex;flex-direction:column"><div class="hdr"><button type="button" class="back" data-act="home">' + I.back + '홈</button><span style="font-size:16px;font-weight:700">' + e(title) + '</span><span style="min-width:72px"></span></div><div class="scroll">' + body + '</div></div>';
+}
+function msg() {
+  var bubbles = '', k = 0;
+  (C.chat || []).forEach(function (m) {
+    var mine = m.from === ownerSide;
+    bubbles += '<div class="m ' + (mine ? 'bub-r' : 'bub-l') + '" style="animation-delay:' + (0.2 + k * 0.7) + 's">' + e(m.text) + '</div>'; k++;
+  });
+  var parents = function (p, who) {
+    var names = [p.father, p.mother].filter(Boolean).join(' · ');
+    return (names ? names + '의 ' + who + ' ' : '') + '<strong style="color:#1C1C1E">' + e(p.name) + '</strong>';
+  };
+  return shell(other.short || other.name, '<div style="padding:20px 16px 40px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.5"><p style="margin:0 0 6px;text-align:center;font-size:12px;color:#8E8E93">오늘</p>' + bubbles +
+  '<div class="card m" style="animation-delay:' + (0.2 + k * 0.7) + 's;margin-top:14px;padding:22px 20px;border-radius:18px;text-align:center;display:flex;flex-direction:column;gap:14px"><p style="margin:0;font-size:12px;letter-spacing:.2em;color:#8E8E93">INVITATION</p><p style="margin:0;font-family:\'Gowun Batang\',serif;font-size:16px;line-height:2;white-space:pre-line">' + e(C.greeting) + '</p><p style="margin:0;font-size:14px;color:#48484A;line-height:1.8">' + parents(G, '아들') + '<br>' + parents(B, '딸') + '</p></div></div>');
+}
+function photosApp() {
+  var g = '';
+  album.forEach(function (u, i) { g += '<button type="button" data-view="' + (i + 1) + '" class="ph" style="height:256px;border:0;padding:0;display:block;background-image:url(' + u + ')"></button>'; });
+  return shell('추억', '<div style="padding:2px;display:grid;grid-template-columns:1fr 1fr;gap:2px">' + g + '</div><p style="margin:0;padding:16px;text-align:center;font-size:13px;color:#8E8E93">사진 ' + album.length + '장</p>');
+}
+function viewer() {
+  return '<div class="fill open" style="background:#000;display:flex;flex-direction:column"><div style="height:96px;padding:44px 12px 0;box-sizing:border-box;display:flex;align-items:center"><button type="button" class="back" data-act="closeview" style="color:#fff">' + I.back + '사진</button></div><div style="flex:1;display:flex;align-items:center;justify-content:center;padding-bottom:60px"><img src="' + album[S.viewer - 1] + '" alt="" style="max-width:390px;max-height:640px;object-fit:contain"></div></div>';
+}
+function cal() {
+  var first = new Date(C.date.year, C.date.month - 1, 1).getDay();
+  var days = new Date(C.date.year, C.date.month, 0).getDate();
+  var c = '';
+  for (var b = 0; b < first; b++) c += '<span></span>';
+  for (var j = 1; j <= days; j++) {
+    var dow = (first + j - 1) % 7, st = 'width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:999px;font-size:15px;';
+    if (j === C.date.day) st += 'background:#E5484D;color:#fff;font-weight:700'; else st += 'color:' + (dow === 0 ? '#E5484D' : '#1C1C1E');
+    c += '<div style="display:flex;justify-content:center"><span style="' + st + '">' + j + '</span></div>';
+  }
+  return shell('캘린더', '<div style="padding:20px 20px 40px;display:flex;flex-direction:column;gap:18px"><p style="margin:0;font-size:26px;font-weight:700">' + C.date.year + '년 ' + C.date.month + '월</p>' +
+  '<div style="display:grid;grid-template-columns:repeat(7,1fr);font-size:12px;color:#8E8E93;text-align:center"><span style="color:#E5484D">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>' +
+  '<div style="display:grid;grid-template-columns:repeat(7,1fr);row-gap:6px">' + c + '</div>' +
+  '<div class="card" style="padding:14px 16px;display:flex;gap:12px"><span style="width:4px;border-radius:2px;background:#E5484D;display:block"></span><span style="display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.5"><strong style="font-size:16px">' + e(G.short || G.name) + ' ♥ ' + e(B.short || B.name) + ' 결혼식</strong><span style="color:#48484A">' + e(WD.dateText) + ' · ' + e(WD.timeText) + '</span><span style="color:#48484A">' + e(V.name) + ' ' + e(V.hall) + '</span></span></div>' +
+  '</div>');
+}
+function map() {
+  var links = '';
+  [['naverMap','네이버 지도'],['kakaoMap','카카오맵'],['tmap','티맵']].forEach(function (l) { if (V[l[0]]) links += '<button type="button" class="btn-o" data-url="' + e(V[l[0]]) + '">' + l[1] + '</button>'; });
+  var how = '';
+  if (V.subway) how += '<div><strong>지하철</strong><br><span style="color:#48484A">' + e(V.subway) + '</span></div>';
+  if (V.bus) how += '<div><strong>버스</strong><br><span style="color:#48484A">' + e(V.bus) + '</span></div>';
+  if (V.parking) how += '<div><strong>주차</strong><br><span style="color:#48484A">' + e(V.parking) + '</span></div>';
+  return shell('오시는 길', '<button type="button" data-url="' + e(V.naverMap || V.kakaoMap || '') + '" style="width:100%;height:260px;border:0;background:#E3E6E1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#48484A;font-size:13px">' + I.map(34, '#E5484D') + '<span>' + e(V.name) + '</span><span style="font-size:12px">눌러서 지도 열기</span></button>' +
+  '<div style="padding:20px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:20px">' + e(V.name) + (V.hall ? ' <span style="font-weight:400;font-size:15px;color:#48484A">' + e(V.hall) + '</span>' : '') + '</strong><span style="font-size:14px;color:#48484A">' + e(V.address) + '</span></div>' +
+  '<button type="button" class="btn-o" data-copy="' + e(V.address) + '" data-msg="주소를 복사했어요">주소 복사</button>' +
+  (links ? '<div style="display:grid;grid-template-columns:repeat(' + (links.match(/<button/g) || []).length + ',1fr);gap:8px">' + links + '</div>' : '') +
+  '<div style="display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:1.6">' + how + '</div></div>');
+}
+function contact() {
+  var rows = '';
+  var list = [['신랑', G.name, G.phone], ['신부', B.name, B.phone], ['신랑 아버지', G.father, P.groomFatherPhone], ['신랑 어머니', G.mother, P.groomMotherPhone], ['신부 아버지', B.father, P.brideFatherPhone], ['신부 어머니', B.mother, P.brideMotherPhone]];
+  list.forEach(function (c) {
+    if (!c[1]) return;
+    var tel = c[2] ? c[2].replace(/[^0-9+]/g, '') : '';
+    rows += '<div style="min-height:68px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #E5E5EA"><span style="width:42px;height:42px;border-radius:999px;background:#D1D1D6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700">' + e(c[1].slice(-2, -1)) + '</span><span style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#8E8E93">' + c[0] + '</span><span style="font-size:16px">' + e(c[1]) + '</span></span>' +
+      (tel ? '<a class="circ" href="tel:' + tel + '" aria-label="전화">' + I.call + '</a><a class="circ" href="sms:' + tel + '" aria-label="문자">' + I.msg(18) + '</a>' : '') + '</div>';
+  });
+  return shell('연락처', '<div style="padding:12px 16px 40px;display:flex;flex-direction:column">' + rows + '</div>');
+}
+function gift() {
+  var a = '';
+  [['신랑측', G], ['신부측', B]].forEach(function (x) {
+    var p = x[1]; if (!p.account) return;
+    var full = (p.bank || '') + ' ' + p.account;
+    a += '<div class="card" style="padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="display:flex;flex-direction:column;gap:4px;font-size:14px"><span style="font-size:12px;color:#8E8E93">' + x[0] + '</span><span>' + e(full) + '</span><span style="color:#48484A">예금주 ' + e(p.name) + '</span></span><button type="button" data-copy="' + e(full) + '" data-msg="계좌번호를 복사했어요" style="height:40px;padding:0 14px;border:0;border-radius:10px;background:#1C1C1E;color:#fff;font-size:13px">복사</button></div>';
+  });
+  return shell('마음 전하기', '<div style="padding:24px 16px 40px;display:flex;flex-direction:column;gap:12px"><p style="margin:0 0 6px;font-size:14px;line-height:1.6;color:#48484A;text-align:center">참석이 어려우신 분들을 위해<br>계좌번호를 남겨드려요.</p>' + a + '</div>');
+}
+function memo() {
+  var lines = (C.memo || []).map(function (l) { return '· ' + e(l); }).join('<br>');
+  return shell('메모', '<div style="padding:24px 22px 40px;display:flex;flex-direction:column;gap:14px;background:#FFFBEA;min-height:100%;box-sizing:border-box"><p style="margin:0;font-size:22px;font-weight:700">결혼식 안내 메모</p><p style="margin:0;font-size:12px;color:#8E8E93">' + e(WD.dateText) + '</p><p style="margin:0;font-size:15px;line-height:2">' + lines + '</p></div>', '#FFFBEA');
+}
+function rsvp() {
+  var done = S.rsvp ? '<p class="open" style="margin:8px 0 0;padding:14px;border-radius:12px;background:#EAF7EF;color:#1F6B41;font-size:14px;text-align:center">' + (S.rsvp === 'yes' ? '고마워요! ' + C.date.month + '월 ' + C.date.day + '일에 만나요.' : '마음만으로도 충분히 고마워요.') + '</p>' : '';
+  return shell('참석 여부', '<div style="padding:28px 20px 40px;display:flex;flex-direction:column;gap:14px"><p style="margin:0;font-size:20px;font-weight:700;text-align:center">참석 의사를 알려주세요</p><p style="margin:0 0 6px;font-size:14px;color:#48484A;text-align:center">식사 준비에 큰 도움이 돼요</p>' +
+  '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button type="button" class="seg ' + (S.rsvp === 'yes' ? 'on' : 'off') + '" data-rsvp="yes">참석할게요</button><button type="button" class="seg ' + (S.rsvp === 'no' ? 'on' : 'off') + '" data-rsvp="no">어려워요</button></div>' + done + '</div>');
+}
+
+function render() {
+  var h = '';
+  if (S.screen === 'lock') h = lock();
+  else if (S.screen === 'pass') { h = pass(); S.passFresh = false; }
+  else if (S.screen === 'home') h = home();
+  else if (S.screen === 'app') h = { msg: msg, photo: photosApp, cal: cal, map: map, contact: contact, gift: gift, memo: memo, rsvp: rsvp }[S.app]();
+  if (S.viewer) h += viewer();
+  document.getElementById('app').innerHTML = h;
+}
+function pressKey(k) {
+  if (k === 'del') { S.code = S.code.slice(0, -1); S.wrong = false; return render(); }
+  if (S.code.length >= 4) return;
+  S.code += k; S.wrong = false; render();
+  if (S.code.length === 4) {
+    var ok = S.code === WD.passcode;
+    setTimeout(function () { if (ok) { S.screen = 'home'; S.code = ''; } else { S.code = ''; S.wrong = true; } render(); }, 220);
+  }
+}
+document.getElementById('app').addEventListener('click', function (ev) {
+  var t = ev.target.closest('[data-act],[data-key],[data-app],[data-view],[data-url],[data-copy],[data-rsvp]');
+  if (!t) return;
+  if (t.hasAttribute('data-key')) return pressKey(t.getAttribute('data-key'));
+  if (t.hasAttribute('data-app')) { S.screen = 'app'; S.app = t.getAttribute('data-app'); if (S.app === 'msg') S.badge = false; return render(); }
+  if (t.hasAttribute('data-view')) { S.viewer = +t.getAttribute('data-view'); return render(); }
+  if (t.hasAttribute('data-url')) return WD.openUrl(t.getAttribute('data-url'));
+  if (t.hasAttribute('data-copy')) return WD.copy(t.getAttribute('data-copy'), t.getAttribute('data-msg'));
+  if (t.hasAttribute('data-rsvp')) {
+    S.rsvp = t.getAttribute('data-rsvp'); render();
+    if (S.rsvp === 'yes' && (C.rsvp || {}).url) setTimeout(function () { WD.openUrl(C.rsvp.url); }, 400);
+    return;
+  }
+  var a = t.getAttribute('data-act');
+  if (a === 'topass') { S.screen = 'pass'; S.code = ''; S.wrong = false; S.passFresh = true; }
+  else if (a === 'home') { S.screen = 'home'; S.app = null; S.viewer = 0; }
+  else if (a === 'closeview') S.viewer = 0;
+  else if (a === 'share') return WD.share();
+  render();
+});
+setInterval(function () { if (S.screen === 'lock') { var el = document.querySelector('#app span[style*="84px"]'); if (el) el.textContent = clock(); } }, 15000);
+function fit() {
+  var vv = window.visualViewport;
+  var vw = vv ? vv.width : window.innerWidth, vh = vv ? vv.height : window.innerHeight;
+  var k = Math.min(vw / 390, vh / 844);
+  var app = document.getElementById('app');
+  app.style.transform = 'scale(' + k + ')';
+  app.style.marginLeft = Math.max(0, (vw - 390 * k) / 2) + 'px';
+  app.style.marginTop = Math.max(0, (vh - 844 * k) / 2) + 'px';
+}
+window.addEventListener('resize', fit);
+window.addEventListener('orientationchange', function () { setTimeout(fit, 300); });
+if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+fit(); render();
+</script>
+</body>
+</html>
